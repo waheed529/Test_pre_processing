@@ -1,0 +1,81 @@
+=================for Kafka =============
+1)To Start Zookeeper server:
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties 
+
+2)To Start Kafka server:
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+3)To Create Kafka Topic if not exist:
+kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+
+4)To Start Producer:
+kafka-console-producer.bat --broker-list localhost:9092 --topic test
+
+5)To Start Consumer:
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test
+
+6)wrote the kafka producer in the Micro service Rest api end point exposed.
+
+=============for Swagger=============================
+
+1)add dependency:
+<dependency>
+       <groupId>io.springfox</groupId>
+       <artifactId>springfox-swagger2</artifactId>
+       <version>2.6.1</version>
+   </dependency>
+ 
+   <dependency>
+       <groupId>io.springfox</groupId>
+       <artifactId>springfox-swagger-ui</artifactId>
+       <version>2.6.1</version>
+   </dependency>
+   
+ 2)Add Swagger configuration class:
+   @Configuration
+	@EnableSwagger2
+	public class Swagger2UiConfiguration extends WebMvcConfigurerAdapter 
+	{
+    	@Bean
+    	public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2).select()
+                .apis(RequestHandlerSelectors.basePackage("com.optm.wah.controller"))
+                //.paths(PathSelectors.any())
+                 .paths(PathSelectors.ant("/**"))
+                .build();
+    }
+ 
+}
+3) to access swagger UI:
+http://localhost:9032/swagger-ui.html#/ 
+
+4)to get json format:
+http://localhost:9032/v2/api-docs
+
+5)Either place Swagger2UiConfiguration in the same place of @SpringBootApplicatin class or its sub packages othere wise specifiy package name inside
+@ComponentScan(basePackages= {"com.optm.wah.controller","com.optum.jaxb","com.optm.swagger"})
+===============Spring Security===========================
+
+++++++++++++++++to call services++++++++++
+1)browse: 
+http://localhost:9032/swagger-ui.html
+endPoint: 
+http://localhost:9032/api/generateFeedXML
+request json:
+{
+  "prop": [
+    {
+      "action": "string",
+      "att": "string",
+      "id": 0,
+      "type": "string",
+      "val": "string"
+    }
+  ]
+}
+response:
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataFeed>
+    <prop ID="0" action="string" att="string" type="string" val="string"/>
+</dataFeed>
+

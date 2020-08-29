@@ -1,0 +1,34 @@
+1.Create spring boot starter project without selectin of any of starter.
+  By default it contains 
+  <parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.2.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+ 
+ 	 <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+	 </dependency>
+
+  This spring-boot-starter  is by default contains 
+   1)Spring-boot.jar 2)spring-core.jar 3)spring-logging.jar 4)spring-autoconfig.jar
+     spring-boot-starter-parent is provides facility to pick specific spring version jar(compatable versins)
+     which will avoid responsibility to work with version.In the jar 
+     version has been decided by the starter-parent.It help easy dependency management.
+     
+  1.Spring Boot Starters help easy dependency management.
+  2.Sprinb Boot increases the speed of development bcz of starters and autoccongiguration.
+  3.We no need to hunt for all the compatible libraries for the specific spring version,Sprinb-boot-starter-parent easy it.
+    ie No need to mention <version> for spring-boot-starter-jdbc/jpa/web/aot...etc.
+   
+ 2)Then added <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		
+    This jar contains embeded tomcat server,where we can run our application, if you dont want the exclude it
+    by using <exclusions> tage inside the starter-web dependency.
+    It contains Embeded Servlet Container(i.e Tomcat).The Spring-boot-starter-web automatically pulls spring-boot-starter-tomcat
+   
