@@ -86,10 +86,10 @@
 	</dependencies>
  <repositories>
       <repository>
-          <id>jboss-repo</id>
-          <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+          <id>spring-repo</id>
+          <url>https://repo.spring.io/release</url>
       </repository>
- </repositories>
+</repositories>
 
 	<build>
 		<plugins>
