@@ -40,17 +40,17 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>20180813</version>
-		</dependency>
+		</dependency> -->
 	<!-- 	<dependency>
     <groupId>commons-beanutils</groupId>
     <artifactId>commons-beanutils</artifactId>
     <version>1.9.3</version>
 	</dependency> -->
-		<dependency>
+	<!-- 	<dependency>
     <groupId>org.apache.commons</groupId>
     <artifactId>commons-lang3</artifactId>
     <version>3.5</version>
@@ -59,7 +59,7 @@
     <groupId>com.googlecode.json-simple</groupId>
     <artifactId>json-simple</artifactId>
     <version>1.1.1</version>
-	</dependency>
+	</dependency> -->
 	<dependency>
     <groupId>org.apache.httpcomponents</groupId>
     <artifactId>httpclient</artifactId>
@@ -84,6 +84,12 @@
        <version>2.6.1</version>
    </dependency>
 	</dependencies>
+ <repositories>
+      <repository>
+          <id>jboss-repo</id>
+          <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+      </repository>
+ </repositories>
 
 	<build>
 		<plugins>
