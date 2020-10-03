@@ -55,7 +55,7 @@ public class JaxbEngine {
 		}catch(Exception e) {
 			
 		}
-		return "failed"; 
+		return "failed";
 	}
 	public String generateXML(DataFeed dfeed) {
 		StringWriter writer=new StringWriter();
