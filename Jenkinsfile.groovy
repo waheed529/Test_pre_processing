@@ -1,10 +1,10 @@
 pipeline {
-    agent any
+    
     environment {
     registry = "waheed529/docker-test"
     registryCredential = "dockerhub"
    }
-   
+   agent any
     stages {
         stage ('clean') {
             steps {
@@ -18,7 +18,6 @@ pipeline {
                 sh "mvn package"
                 echo 'This is a package pipeline.'
                 
-                 echo 'This is a image build registry.'
             }
         }
     }
