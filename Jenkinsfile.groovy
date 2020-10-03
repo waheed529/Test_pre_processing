@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
     registry = "waheed529/docker-test"
-    registryCredential = ‘dockerhub’
+    registryCredential = "dockerhub"
    }
    
     stages {
