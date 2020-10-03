@@ -17,7 +17,7 @@ pipeline {
             steps {
                 sh "mvn package"
                 echo 'This is a package pipeline.'
-                  dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                
                  echo 'This is a image build registry.'
             }
         }
