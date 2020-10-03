@@ -79,3 +79,101 @@ response:
     <prop ID="0" action="string" att="string" type="string" val="string"/>
 </dataFeed>
 
+---
+-----------------Google cloud jenkins configuratin for ubuntu------------------------------
+ # sudo su -                                -----> to switch root user
+       # apt-get  update                      -----> to update repo
+       # apt-get install git-core -y
+       # apt-get install openjdk-8-jdk -y
+       # java -version
+       # apt-get install ant  
+       # ant -version
+       # apt-get install maven  -y
+       # mvn --version
+       # apt-get install tomcat8 
+       # service tomcat8 start
+       # netstat -lntp                         -----> to list ports
+       # service tomcat8 stop
+to add rule to get access external ip address:
+https://stackoverflow.com/questions/45989515/accessing-google-cloud-vm-instance-tomcat-using-external-ip
+https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-16-04
+https://www.liquidweb.com/kb/installing-jenkins-on-ubuntu-16-04/
+
+/usr/share/jenkins
+/usr/share/tomcat8
+wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.8/bin/apache-tomcat-9.0.8.tar.gz
+tar -xzf apache-tomcat-9.0.8.tar.gz
+
+ export CATALINA_HOME="/apache-tomcat-9.0.8"
+ export  PATH=$CATALINA_HOME/bin:$PATH
+source .profile
+echo $CATALINA_HOME
+ startup.sh
+ netstat -lntp
+ shutdown.sh
+cp /usr/share/jenkins/jenkins.war /apache-tomcat-9.0.8/webapps
+
+http://104.155.162.222:8080/
+http://104.155.162.222:8080/jenkins/
+copy password:
+sudo su -
+>cd /root
+cat /root/.jenkins/secrets/initialAdminPassword
+/root/.jenkins/secrets/initialAdminPassword
+
+9db7776ac0e14f45b9b306c6f95d5475
+
+-------------docker installation for ubuntu---------------------------
+>sudo su -
+1.remove the existing docker from the system:
+>sudo apt-get remove docker docker-engine
+2.add GPG key for docker repository:
+>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+3.add the docker repository:
+>sudo add-apt-repository"deb[arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release-cs) stable"
+>sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+4.update the package:
+>sudo apt-get update
+5.Make sure you are about to install from the Docker repo instead of the default Ubuntu 16.04 repo:
+>apt-cache policy docker-ce
+6.install docker:
+>sudo apt-get install docker-ce -y 
+>sudo apt-get install -y docker-ce
+7.Check that it’s running status:
+>sudo systemctl status docker
+Note:
+Installing Docker now gives you not just the Docker service (daemon) but also the docker command line utility, or the Docker client. We’ll explore how to use the docker command later in this tutorial.
+8.to check version:
+>docker --version
+output: Docker version 19.03.13, build 4484c46d9d
+means instal	latin successfully completed.
+>docker info
+---------Jenkins Job Creation:--------------
+
+----------------jfrog artifactory--
+https://websiteforstudents.com/how-to-install-jfrog-artifactory-on-ubuntu-18-04-16-04/
+
+installed locatin in ubuntu:
+/opt/jfrog/artifactory
+
+to start or stop:
+systemctl stop artifactory.service
+systemctl start artifactory.service
+systemctl enable artifactory.service
+
+to check running status;
+systemctl status artifactory.service
+
+cp /opt/jfrog/artifactory/app/artifactory/tomcat/webapps/artifactory.war /apache-tomcat-9.0.8/webapps
+cp /opt/jfrog/artifactory/app/artifactory/tomcat/webapps/access.war /apache-tomcat-9.0.8/webapps
+
+-----------Tomcat9-------
+installed in:
+/apache-tomcat-9.0.8
+/apache-tomcat-9.0.8/webapps/
+/apache-tomcat-9.0.8/bin
+startup.sh
+shutdown.sh
+netstat -lntp
+netstat -aof | findstr :8080

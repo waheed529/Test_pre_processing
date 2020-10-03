@@ -31,4 +31,22 @@
     This jar contains embeded tomcat server,where we can run our application, if you dont want the exclude it
     by using <exclusions> tage inside the starter-web dependency.
     It contains Embeded Servlet Container(i.e Tomcat).The Spring-boot-starter-web automatically pulls spring-boot-starter-tomcat
+    
+  ===========================Jenkins Configuration============================
+  1.Error:
+  [ERROR] No compiler is provided in this environment. Perhaps you are running on a JRE rather than a JDK? while running local jenkins
+  
+  solutiion:
+  Go To Jenkins -> Manage Jenkins -> Global Tool Configuration -> JDK. Provide path to the JDK under JAVA_HOME field.
+  
+  2.Jenkins job: clean install success.It generates build in the below locations:
+  It is local reposity location:
+  C:\Windows\System32\config\systemprofile\.m2\repository\com\optm\Test_pre_processing\0.0.1-SNAPSHOT
+  or
+  C:\Users\john\.m2\repository\com\optm\Test_pre_processing\0.0.1-SNAPSHOT\Test_pre_processing-0.0.1-SNAPSHOT.jar
+  above location specified in the pom.xml as below
+  <groupId>com.optm</groupId>
+	<artifactId>Test_pre_processing</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Test_pre_processing</name>
    
