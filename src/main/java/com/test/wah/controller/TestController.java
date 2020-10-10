@@ -41,7 +41,6 @@ public class TestController {
 	}
 	
 	@RequestMapping (method = RequestMethod.GET)
-
     public String getProducerResponse() {
 
        return kafkaProducerService.PublishTestMsg("Test Hello....it is done!");
